@@ -1,0 +1,29 @@
+import React, { useEffect, useState } from "react";
+import MoreFoodsBoxes from "../MoreFoodsRestorant/MoreFoodsBoxes/MoreFoodsBoxes";
+import SectionHeader from "../SectionHeader/SectionHeader";
+import BoxesAroundMeFood from "../BoxesAroundMeFood/BoxesAroundMeFood"
+
+export default function NewFoods() {
+  const [allResturants , setAllResturants] = useState([])
+
+  useEffect(() => {
+    fetch(`http://localhost:4444/restaurants` ,)
+    .then(res => res.json())
+    .then(data => setAllResturants(data))
+  },[])
+  return (
+    <div className="mt-10">
+      <SectionHeader title="جدید ترین ها" />
+       
+      <div className="grid xs:grid-cols-2 sm:grid-cols-3  gap-8 mt-10">
+      {allResturants.slice(0,3).map(foods => (
+
+
+      <BoxesAroundMeFood  {...foods} />
+      ))}
+
+ 
+      </div>
+    </div>
+  );
+}

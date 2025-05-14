@@ -1,0 +1,18 @@
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { StrictMode } from 'react'
+import Home from './assets/Page/Home/Home.jsx'
+import CateguryFoods from './assets/Components/CateguryFoods/CateguryFoods.jsx'
+import SinglePageRestorant from './assets/Components/SinglePageRestorant/SinglePageRestorant.jsx'
+createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Home/>} />
+    <Route path="/categuryfoods" element={<CateguryFoods/>} />
+    <Route path="/restorant/:ResoruntID" element={<SinglePageRestorant/>} />
+  </Routes>
+</BrowserRouter>
+
+)
