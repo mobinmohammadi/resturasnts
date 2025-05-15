@@ -282,7 +282,13 @@ export default function Topbar() {
                 </div>
               </div>
               <div className="">
-                <ul className="& > *:flex & > *:hover:cursor-pointer & > *:hover:text-green-600  & > *:rounded-sm & > *:pr-2  & > *:pl-2  & > *:hover:bg-slate-300  & > *:hover:transition-all   & > *:justify-between & > *:pt-2 & > *:pb-2 & > *:text-sm  ">
+                <ul className="z-20 & > *:flex & > *:hover:cursor-pointer & > *:hover:text-green-600  & > *:rounded-sm & > *:pr-2  & > *:pl-2  & > *:hover:bg-slate-300  & > *:hover:transition-all   & > *:justify-between & > *:pt-2 & > *:pb-2 & > *:text-sm  ">
+                  <li className=" ">
+                    <Link to="/sallerpanel/home">ثبت رستوران جدید</Link>
+                    <svg className="w-6 h-6">
+                      <use href="#building-storefront"></use>
+                    </svg>
+                  </li>
                   <li className="">
                     <Link to="/">پیام ها</Link>
                     <svg className="w-6 h-6">

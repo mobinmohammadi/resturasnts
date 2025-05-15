@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Topbar from "../Topbar/Topbar";
 import SectionHeader from "../SectionHeader/SectionHeader";
 import FoodBoxes from "../FoodBoxes/FoodBoxes";
@@ -7,10 +7,27 @@ import SeeMoreBoxes from "../SeeMoreBoxes/SeeMoreBoxes";
 import FooterPc from "../FooterPc/FooterPc";
 
 export default function CateguryFoods() {
+  const [searchValue, setSearchValue] = useState("");
   // const [isShowFiltredBoxes , setIsShowFiltredBoxes] = useState(false)
   const [isShowLayer, setIsShowLayer] = useState(false);
   const [modeFiltred, setModFiltred] = useState("filter-result");
+  const [allRestourants, setAllRestourants] = useState([]);
+  const [visibleRestorunts , setVisibleRestorunts] = useState(4)
 
+  // const [afterTheFilterRestorants , setAfterTheFilterRestorants] = useState
+
+  const addShowMoreFoodes = () => {
+    setTimeout(() => {
+      
+      setVisibleRestorunts((prev) => prev += 2)
+    }, 2000);
+    console.log(visibleRestorunts);
+    
+    console.log("tyf");
+    
+  }
+
+  const restoruntsToShow = allRestourants.slice(0 , visibleRestorunts)
   const boxsFiltred = useRef();
   const handelBox = () => {
     boxsFiltred.current.style.display = "block";
@@ -27,7 +44,35 @@ export default function CateguryFoods() {
       boxsFiltred.current.style.display = "none";
       boxsFiltred.current.style.transition = "all 0.5s ease-in-oute";
     }, 100);
-  }
+  };
+
+  let resultAfterSearch = [];
+
+  const heandleSearchFoods = (e) => {
+    console.log(e);
+    
+    setSearchValue(e.target.value);
+    if (searchValue.length < 3  || e.target.value == "") {
+      getAllRestorants();
+    } else {
+      resultAfterSearch = allRestourants.filter((resturant) => {
+        return resturant.name.includes(searchValue);
+      });
+      console.log(resultAfterSearch);
+      setAllRestourants(resultAfterSearch);
+    }
+  };
+
+  const getAllRestorants = () => {
+    fetch(`http://localhost:4444/restaurants`)
+      .then((res) => res.json())
+      .then((data) => setAllRestourants(data));
+  };
+
+  useEffect(() => {
+    getAllRestorants();
+  }, []);
+
   return (
     <div className="flex flex-col">
       <svg className="hidden">
@@ -65,8 +110,9 @@ export default function CateguryFoods() {
       </svg>
       <Topbar />
       <div className="flex items-center mt-5 gap-5 w-[80%] mx-auto h-13">
-        <div className="relative  flex  bg-white pt-3 pb-3 w-[75%] rounded-md overflow-hidden">
+        <div className="relative  flex z-10  bg-white pt-3 pb-3 w-[75%] rounded-md overflow-hidden">
           <input
+            onChange={(e) => heandleSearchFoods(e)}
             type="text"
             className="bg-white w-full text-xs sm:text-sm focus:outline-0 pr-4  font-bold h-full"
             placeholder="جستو جوی رستوران یا غذا ..."
@@ -86,29 +132,39 @@ export default function CateguryFoods() {
               <svg className="w-7 h-7">
                 <use href="#adjustments-horizontal"></use>
               </svg>
-              <span className="text-[10px] hidden sm:inline-block">فیلتر و مرتب سازی</span>
+              <span className="text-[10px] hidden sm:inline-block">
+                فیلتر و مرتب سازی
+              </span>
             </div>
 
             <div
               ref={boxsFiltred}
-              className={`absolute transition-all hidden z-10 left-0  bg-white w-92 rounded-2xl p-5`}
+              className={`absolute transition-all hidden z-20 left-0  bg-white w-92 rounded-2xl p-5`}
             >
               <div className="flex justify-between pb-5 & > *:cursor-pointer $ > *:pb-3">
                 <span
                   onClick={() => setModFiltred("filter-result")}
-                  className={`${modeFiltred == "filter-result" ? "active--filterd transition-[0.2s]" : ""} w-full text-center`}
+                  className={`${
+                    modeFiltred == "filter-result"
+                      ? "active--filterd transition-[0.2s]"
+                      : ""
+                  } w-full text-center`}
                 >
                   فیلتر نتایج
                 </span>
                 <span
                   onClick={() => setModFiltred("filter-sort")}
-                  className={`${modeFiltred == "filter-sort" ? "active--filterd transition-[0.2s]" : ""} w-full text-center`}
+                  className={`${
+                    modeFiltred == "filter-sort"
+                      ? "active--filterd transition-[0.2s]"
+                      : ""
+                  } w-full text-center`}
                 >
                   مرتب سازی
                 </span>
               </div>
               <span className="w-full h-[2px] mt-2 mb-2 bg-[#eeeeee] inline-block"></span>
-              {modeFiltred == "filter-result"  ? (
+              {modeFiltred == "filter-result" ? (
                 <div className="pb-3">
                   <ul className="flex flex-col gap-4 & > *:flex & > *:items-center & > *:gap-1">
                     <li className="flex items-center">
@@ -148,36 +204,43 @@ export default function CateguryFoods() {
           </div>
         </div>
       </div>
-      <div className="container ">
-        <div className="flex mt-9 justify-between items-center">
+      <div className="container-foods ">
+        <div className="flex mt-9 mb-6 justify-between items-center">
           <SectionHeader title="جستوجوی پیتزا در مهاباد" />
           <div className="flex gap-1 seaction-header">
-            <span>23</span>
+            <span>{allRestourants.length}</span>
             <span>مورد یافت شد</span>
           </div>
         </div>
-        <div className="mt-7 grid gap-5 grid-cols-1 2xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <BoxesAroundMeFood />
-          <BoxesAroundMeFood />
-          <BoxesAroundMeFood />
-          <BoxesAroundMeFood />
-          <BoxesAroundMeFood />
-          <BoxesAroundMeFood />
-          <BoxesAroundMeFood />
-          <BoxesAroundMeFood />
-          <BoxesAroundMeFood />
-        </div>
+        {!allRestourants.length ? (
+          <div className="w-full flex items-center justify-center">
+            <span className="bg-red-500 mt-5 w-full mb-5 items-center justify-center text-center pt-2 pb-2 text-white rounded-md text-sm sm:text-xl">
+              {" "}
+              هیچ رستورانی طبق سرچ شما پیدا نشد 🙁
+            </span>
+          </div>
+        ) : (
+          <div className="mt-7  grid gap-5 grid-cols-1 2xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {restoruntsToShow.map((resturant) => (
+              <BoxesAroundMeFood {...resturant} />
+            ))}
+          </div>
+        )}
       </div>
       {isShowLayer ? (
-        <div onClick={() => {
-          closBox()
-        }} className="bg-black/20 w-full h-full fixed top-0"></div>
+        <div
+          onClick={() => {
+            closBox();
+          }}
+          className="bg-black/20 w-full h-full fixed top-0"
+        ></div>
       ) : (
         ""
       )}
-      <SeeMoreBoxes />
 
-      <FooterPc/>
+      {!allRestourants.length > 5 || visibleRestorunts >= allRestourants.length ? null : <div className="" onClick={() => addShowMoreFoodes()}><SeeMoreBoxes/></div>}
+
+      <FooterPc />
     </div>
   );
 }

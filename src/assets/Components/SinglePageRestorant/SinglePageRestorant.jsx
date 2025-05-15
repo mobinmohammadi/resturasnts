@@ -9,6 +9,8 @@ import AddressRestorant from "./AddressRestorant/AddressRestorant";
 import { useParams } from "react-router";
 import MenuSinglePageRestorant from "./MenuSinglePageRestorant/MenuSinglePageRestorant";
 import SinglePageRestorantMenu from "./SinglePageRestorantMenus/SinglePageRestorantMenus";
+import SwalBox from "../SwalBox/SwalBox";
+
 
 export default function SinglePageRestorant() {
   const paramsID = useParams();

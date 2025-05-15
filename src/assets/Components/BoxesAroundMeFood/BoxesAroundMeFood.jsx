@@ -1,7 +1,19 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router";
 
 export default function BoxesFood({name ,image , id , address , city}) {
+  
+  const [singleFoodsComment , setSingleFoodsComment] = useState([])
+  
+  const modePage = useParams()
+
+  useEffect(() => {
+    fetch(`http://localhost:4444/restaurants/${id}/comments`)
+    .then(res => res.json())
+    .then(result => setSingleFoodsComment(result))
+    
+  } , [])
+  
   return (
     <>
       <svg className="hidden">
@@ -47,10 +59,12 @@ export default function BoxesFood({name ,image , id , address , city}) {
                 <span className="text-xs text-gray-500">({address})</span>
               </div>
             </div>
+            {singleFoodsComment.length ? (
+
             <div className="flex sm:items-center flex-col w-full items-end sm:w-[50%]">
               <div className="text-gray-500 text-xs items-center">
-                (<span>120</span>
-                <span>نظر</span>)
+                <span>{singleFoodsComment.length}</span>
+                <span>نظر</span>
               </div>
               <div className="flex & > *:text-yellow-500 items-center ">
                 <svg className=" w-4 h-4">
@@ -70,6 +84,7 @@ export default function BoxesFood({name ,image , id , address , city}) {
                 </svg>
               </div>
             </div>
+            ) : <div className="text-xs bg-green-800 w-full text-center text-white pt-1 pb-1 rounded-sm mt-1" > فعلا بدون نظر 🤷‍♂️</div>}
           </div>
         </div>
         <div className=""></div>

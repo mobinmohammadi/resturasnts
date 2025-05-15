@@ -1,7 +1,7 @@
 import React from "react";
 import MenuSinglePageRestorant from "../MenuSinglePageRestorant/MenuSinglePageRestorant";
 
-export default function HeaderRestorant({ image, name, allComments }) {
+export default function HeaderRestorant({ image, name, allComments , city , rating }) {
   return (
     <>
       <svg className="hidden">
@@ -135,7 +135,7 @@ export default function HeaderRestorant({ image, name, allComments }) {
                 <svg className="w-4 h-4">
                   <use href="#map-pin"></use>
                 </svg>
-                <span className="text-xs">بلوار فردوسی</span>
+                <span className="text-xs">{city}</span>
               </div>
             </div>
             <div className="flex  items-center flex-col md:flex-row gap-1">
@@ -161,7 +161,7 @@ export default function HeaderRestorant({ image, name, allComments }) {
               <div className="flex flex-col-reverse md:flex-row gap-1">
                 <div className="flex justify-end">
                   <span className="bg-[#21c64f]  text-white  flex w-9 font-bold pt-1 h-8 items-center justify-center text-sm rounded-sm ">
-                    4.2
+                    {rating}
                   </span>
                 </div>
                 <div className="font-semibold cursor-pointer border rounded-sm pt-1 mr-1 pb-1 pr-2 pl-2 text-sm border-[#ef4123] gap-[2px] flex text-[#ef4123]">
@@ -181,7 +181,7 @@ export default function HeaderRestorant({ image, name, allComments }) {
               <svg className="w-5 h-5">
                 <use href="#map-pin"></use>
               </svg>
-              <span>بلوار فردوسی</span>
+              <span>{city}</span>
             </div>
           </div>
           <div className="flex flex-col gap-3">

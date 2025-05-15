@@ -1,8 +1,7 @@
 import React from "react";
 
 export default function CommentsBoxes({name , text}) {
-  {console.log(name);
-  }
+
   return (
     <>
       <div className="border-t-1  border-[#dddddd] border-b-1 pt-4 pb-4 pr-5">
