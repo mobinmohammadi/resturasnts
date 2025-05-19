@@ -40,6 +40,15 @@ body{
   transform: rotate(-40deg);
 }
 
+.errors-panelAdmin{
+  padding: 4px 4px 4px 0;
+   /* pt-1 pb-1 pr-1 rounded-xs  text-xs bg-red-800 text-white */
+  border-radius: 4px;
+  font-size: 12px;
+  background-color: #9f0712 ;
+  color: white;
+}
+
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
