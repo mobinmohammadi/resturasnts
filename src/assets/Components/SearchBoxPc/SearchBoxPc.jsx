@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 export default function SearchBoxPc() {
   const [isShowModalSearch, setIsShowModalSearch] = useState(false);
   const [isShowLoading, setIsShowLoading] = useState(false);
-  const [inputSearchValue , setInputSearchValue] = useState("")
+  const [inputSearchValue, setInputSearchValue] = useState("");
   const [allRestorants, setAllRestorants] = useState([]);
-  let [resultSearch , setResultSearch] = useState([])
+  let [resultSearch, setResultSearch] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:4444/restaurants`)
       .then((res) => res.json())
       .then((result) => {
         setAllRestorants(result);
-        console.log("result" , result);
+        console.log("result", result);
       });
   }, []);
 
@@ -21,19 +21,19 @@ export default function SearchBoxPc() {
 
   const handleSearchBoxs = (e) => {
     setInputSearchValue(e.target.value);
-    
+
     if (inputSearchValue.length == 0) {
       setIsShowModalSearch(false);
-      
     } else {
-      resultSearch = allRestorants.filter(resturan =>  resturan.name.includes(inputSearchValue))
-      setResultSearch(resultSearch)
+      resultSearch = allRestorants.filter((resturan) =>
+        resturan.name.includes(inputSearchValue)
+      );
+      setResultSearch(resultSearch);
       setIsShowModalSearch(true);
       setIsShowLoading(true);
     }
   };
 
-  
   return (
     <>
       <svg className="hidden">
@@ -42,13 +42,13 @@ export default function SearchBoxPc() {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           class="size-6"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M15.75 19.5 8.25 12l7.5-7.5"
           />
         </symbol>
@@ -58,19 +58,19 @@ export default function SearchBoxPc() {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          stroke-width="1.2"
+          strokeWidth="1.2"
           stroke="currentColor"
         >
           <path
             d="M14.55 21.67C18.84 20.54 22 16.64 22 12C22 6.48 17.56 2 12 2C5.33 2 2 7.56 2 7.56M2 7.56V3M2 7.56H4.01H6.44"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></path>
           <path
             d="M2 12C2 17.52 6.48 22 12 22"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-dasharray="3 3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeDasharray="3 3"
           ></path>
         </symbol>
         <symbol
@@ -78,13 +78,13 @@ export default function SearchBoxPc() {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           class="size-6"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
           />
         </symbol>
@@ -130,37 +130,49 @@ export default function SearchBoxPc() {
                     ) : (
                       ""
                     )}
-                    {inputSearchValue.length > 4 && !isShowLoading ? (
-                      
-                        resultSearch.map((items) => (
+                    <div className="flex flex-col w-full justify-center gap-5 shadow-2xl p-5 rounded-md">
+                      {inputSearchValue.length > 4 && !isShowLoading
+                        ? resultSearch.slice(0, 3).map((items) => (
+                            <>
+                              <a
+                                href={`/restorant/${items.id}`}
+                                className="flex flex-col w-full gap-5 & > *:border-b-1 & > *:pb-2 & > *:sm:pb-5 & > *:rounded-xl & > *:sm:pr-5 & > *:sm:pl-5 & > *:pr-2 & > *:pl-2"
+                              >
+                                <div className="flex justify-between items-center w-full">
+                                  <div className="flex gap-1 items-center flex-col  ">
+                                    <img
+                                      className="w-42 rounded-sm"
+                                      src={items.image}
+                                      alt=""
+                                    />{" "}
+                                    <span className="text-xs sm:text-sm">
+                                      {items.name}
+                                    </span>
+                                    <div className="flex gap-1">
+                                      <span className="text-xs sm:text-sm">
+                                        250/000
+                                      </span>
+                                      <span className="text-xs sm:text-sm">
+                                        تومان
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <div className="w-5 sm:w-8 cursor-pointer bg-teal-800 h-5 sm:h-8 rounded-full flex justify-center items-center text-white">
+                                    <svg className="w-4 h-4 sm:w-5 sm:h-5">
+                                      <use href="#chevron-left"></use>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </a>
                           
-                          <a href={`/restorant/${items.id}`} className="flex flex-col w-full gap-5 & > *:border-b-1 & > *:pb-2 & > *:sm:pb-5 & > *:rounded-xl & > *:sm:pr-5 & > *:sm:pl-5 & > *:pr-2 & > *:pl-2">
-                          <div className="flex justify-between items-center w-full">
-                            
-                            <div className="flex gap-1 items-center ">
-                              <img className="w-20 rounded-2xl" src={items.image} alt="" />
-                              {" "}
-                              <span className="text-xs sm:text-sm">
-                                {items.name}
-                              </span>
-                              <div className="flex gap-1">
-                                <span className="text-xs sm:text-sm">
-                                  250/000
-                                </span>
-                                <span className="text-xs sm:text-sm">تومان</span>
-                              </div>
-                            </div>
-                            <div className="w-5 sm:w-8 cursor-pointer bg-teal-800 h-5 sm:h-8 rounded-full flex justify-center items-center text-white">
-                              <svg className="w-4 h-4 sm:w-5 sm:h-5">
-                                <use href="#chevron-left"></use>
-                              </svg>
-                            </div>
-                          </div>
-                        </a>
-                       
-                        ))
-                        ) : null}
-                      
+                            </>
+                          ))
+
+                        : null}
+                        {resultSearch.length >= 3 ? (    <div className="bg-green-500 flex justify-center p-2 rounded-md text-white cursor-pointer ">
+                                مشاهده کل نتیجه یافت شده{" "}
+                              </div>) : null}
+                    </div>
                   </div>
                 </div>
               ) : null}

@@ -19,7 +19,7 @@ export default function NewFoods() {
       {allResturants.slice(0,3).map(foods => (
 
 
-      <BoxesAroundMeFood  {...foods} />
+      <BoxesAroundMeFood key={foods.id}  {...foods} />
       ))}
 
  

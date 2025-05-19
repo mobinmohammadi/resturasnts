@@ -16,6 +16,8 @@ export default function SinglePageRestorant() {
   const paramsID = useParams();
   let [dataSingleResturants, setDataSingleResturants] = useState({});
   const [allComments , setAllComments] = useState([])
+  const [arrayUserBasket , setArrayUserBasket] = useState([])
+  
 
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export default function SinglePageRestorant() {
   const [statusMenuShow, setStatusMenuShow] = useState("resturants-menu");
   return (
     <div className="">
-      <Topbar />
+      <Topbar  arrayUserBasket={arrayUserBasket} />
       <HeaderRestorant {...dataSingleResturants} allComments={allComments} />
       <div className="flex flex-col bg-white justify-between pt-5 pr-4 pl-4 xs:pr-12 xs:pl-12">
         <div className="w-[20rem]  ">
@@ -65,7 +67,7 @@ export default function SinglePageRestorant() {
       </div>
       {statusMenuShow == "resturants-comments" ? <CommentsSections {...dataSingleResturants} /> : null}
       {statusMenuShow == "resturants-menu" ? (
-        <SinglePageRestorantMenu {...dataSingleResturants}/>
+        <SinglePageRestorantMenu arrayUserBasket={arrayUserBasket} setArrayUserBasket={setArrayUserBasket} dataSingleResturants={dataSingleResturants}/>
       ) : null}
       {statusMenuShow == "resturants-infos" ? <AddressRestorant /> : null}
 

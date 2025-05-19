@@ -31,7 +31,7 @@ export default function CommentsBoxes({name , text}) {
           <div className="flex w-30 mt-4 border-1 gap-2 rounded-3xl pt-[5px] pb-[5px] pr-2 pl-2 border-[#dddddd] justify-center items-center">
             <span className="text-xs">چیز برگر</span>
             <div className="flex gap-[2px] items-center border-r-1 pr-2  border-[#dddddd]">
-              <span className="text-sm mt-1">4</span>
+              <span className="text-sm mt-1">3.5</span>
               <svg className="text-amber-400 w-4 h-4">
                 <use href="#star"></use>
               </svg>

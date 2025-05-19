@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 
 
 
-export default function OptionsSelect({title}) {
+export default function OptionsSelect(props) {
 
-    const [province , setProvince] = useState("")
+// console.log("props ====>" , props );
+
+
+
     
   return (
-    <option onClick={() => setProvince(title)} value={title}>{title}</option>
+    <option value={props.fenglish}>{props.name}</option>
   )
 }

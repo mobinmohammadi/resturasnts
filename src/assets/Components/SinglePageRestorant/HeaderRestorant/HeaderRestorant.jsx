@@ -1,7 +1,13 @@
 import React from "react";
 import MenuSinglePageRestorant from "../MenuSinglePageRestorant/MenuSinglePageRestorant";
 
-export default function HeaderRestorant({ image, name, allComments , city , rating }) {
+export default function HeaderRestorant({
+  image,
+  name,
+  allComments,
+  city,
+  rating,
+}) {
   return (
     <>
       <svg className="hidden">
@@ -13,9 +19,9 @@ export default function HeaderRestorant({ image, name, allComments , city , rati
           class="size-6"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z"
-            clip-rule="evenodd"
+            clipRule="evenodd"
           />
         </symbol>
         <symbol
@@ -23,13 +29,13 @@ export default function HeaderRestorant({ image, name, allComments , city , rati
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           class="size-6"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
           />
         </symbol>
@@ -41,9 +47,9 @@ export default function HeaderRestorant({ image, name, allComments , city , rati
           class="size-6"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-            clip-rule="evenodd"
+            clipRule="evenodd"
           />
         </symbol>
         <symbol
@@ -51,13 +57,13 @@ export default function HeaderRestorant({ image, name, allComments , city , rati
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           class="size-6"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672Zm-7.518-.267A8.25 8.25 0 1 1 20.25 10.5M8.288 14.212A5.25 5.25 0 1 1 17.25 10.5"
           />
         </symbol>
@@ -66,13 +72,13 @@ export default function HeaderRestorant({ image, name, allComments , city , rati
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           class="size-6"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
           />
         </symbol>
@@ -81,13 +87,13 @@ export default function HeaderRestorant({ image, name, allComments , city , rati
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           class="size-6"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
           ></path>
         </symbol>
@@ -138,42 +144,51 @@ export default function HeaderRestorant({ image, name, allComments , city , rati
                 <span className="text-xs">{city}</span>
               </div>
             </div>
-            <div className="flex  items-center flex-col md:flex-row gap-1">
-              <div className="flex & > *:h-5 & > *:text-[#f5a623]">
-                <div className="flex">
-                  <svg className="w-5">
-                    <use href="#star"></use>
-                  </svg>
-                  <svg className="w-5">
-                    <use href="#star"></use>
-                  </svg>
-                  <svg className="w-5">
-                    <use href="#star"></use>
-                  </svg>
-                  <svg className="w-5">
-                    <use href="#star"></use>
-                  </svg>
-                  <svg className="w-5">
-                    <use href="#star"></use>
-                  </svg>
+            <div className="flex flex-col gap-3">
+              {allComments.length ? (
+                <div className="flex & > *:h-5 & > *:text-[#f5a623]">
+                  <div className="flex">
+                    <svg className="w-5">
+                      <use href="#star"></use>
+                    </svg>
+                    <svg className="w-5">
+                      <use href="#star"></use>
+                    </svg>
+                    <svg className="w-5">
+                      <use href="#star"></use>
+                    </svg>
+                    <svg className="w-5">
+                      <use href="#star"></use>
+                    </svg>
+                    <svg className="w-5">
+                      <use href="#star"></use>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col-reverse md:flex-row gap-1">
-                <div className="flex justify-end">
-                  <span className="bg-[#21c64f]  text-white  flex w-9 font-bold pt-1 h-8 items-center justify-center text-sm rounded-sm ">
-                    {rating}
-                  </span>
-                </div>
-                <div className="font-semibold cursor-pointer border rounded-sm pt-1 mr-1 pb-1 pr-2 pl-2 text-sm border-[#ef4123] gap-[2px] flex text-[#ef4123]">
+              ) : null}
+
+              <div className="flex  items-center flex-col md:flex-row gap-1">
+                <div className="flex items-center xs:text-left flex-col-reverse md:flex-row gap-1">
                   {allComments.length ? (
-                    <div className="">
-                      <span>مشاهده</span>
-                      <span>{allComments.length}</span>
-                      <span>نظر</span>
+                    <div className="flex justify-end">
+                      <span className="bg-[#21c64f]  text-white  flex w-9 font-bold pt-1 h-8 items-center justify-center text-sm rounded-sm ">
+                        {rating}
+                      </span>
                     </div>
-                  ) : (
-                    <div className="">هنوز کامنتی برای این رستوران ثبت نشده 😴</div>
-                  )}
+                  ) : null}
+                  <div className="font-semibold cursor-pointer border rounded-sm pt-1 mr-1 pb-1 pr-2 pl-2 text-sm border-[#ef4123] gap-[2px] flex text-[#ef4123]">
+                    {allComments.length ? (
+                      <div className="">
+                        <span>مشاهده</span>
+                        <span>{allComments.length}</span>
+                        <span>نظر</span>
+                      </div>
+                    ) : (
+                      <div className="text-xs text-center leading-5 max-w-32">
+                        هنوز کامنتی برای این رستوران ثبت نشده 😴
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

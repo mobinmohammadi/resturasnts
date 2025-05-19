@@ -52,6 +52,7 @@ export default function CommentsSections({ name }) {
       .then((res) => {
         if (res) {
           setNewTextComments("")
+          
         }
 
         return res;
@@ -60,6 +61,9 @@ export default function CommentsSections({ name }) {
       .then((result) => {
         getAllComments();
         setIsShowModaleSucssusComments(true);
+        setTimeout(() => {
+          location.reload()
+        }, 4000);
       });
   };
 
@@ -90,13 +94,13 @@ export default function CommentsSections({ name }) {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           class="size-6"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
           />
         </symbol>
@@ -109,9 +113,9 @@ export default function CommentsSections({ name }) {
           class="size-6"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-            clip-rule="evenodd"
+            clipRule="evenodd"
           />
         </symbol>
       </svg>
@@ -122,9 +126,9 @@ export default function CommentsSections({ name }) {
               نظر کاربران درباره رستوران {name}
             </span>
           </div>
-          <div className="flex gap-1  justify-between h-full rounded-sm cursor-pointer  items-center bg-zinc-700 pr-3 pl-3 pt-2  pb-2 font-bold">
+          <div onClick={() => showBoxesForAddComments()} className="flex gap-1  justify-between h-full rounded-sm cursor-pointer  items-center bg-zinc-700 pr-3 pl-3 pt-2  pb-2 font-bold">
             <span
-              onClick={() => showBoxesForAddComments()}
+              
               className="text-x sm:text-xs"
             >
               ثبت کامنت
@@ -146,7 +150,7 @@ export default function CommentsSections({ name }) {
             </div>
 
             <div className="flex flex-col gap-1">
-              <span className="text-sm">مبین محمدی</span>
+              <span className="text-sm">کاربر مهمان</span>
               <span className="text-xs mr-2">ثبت کامنت جدید</span>
             </div>
           </div>
@@ -216,9 +220,19 @@ export default function CommentsSections({ name }) {
             </div>
           </div>
         </div>
-        {allComments.map((comments) => (
+          <CommentsBoxes name="علیرضا محمدی" body="عالییی❤" />
+          <CommentsBoxes name="بهنام موس زاده" body="ممنونم از کالا هاتون" />
+          <CommentsBoxes name="مبین محمدی" body="بیست🤍" />
+          <CommentsBoxes name="علی رسولی"  body="سلام"/>
+          <CommentsBoxes name="کیوان گچی"  body="خیلی خوب"/>
+          <CommentsBoxes name="مهناز طباطبایی"  body="دارای بنظیری ترین کادر"/>
+          <CommentsBoxes name="الینا حریری"  body="لاکچری💘"/>
+          <CommentsBoxes name="امیر عبوزاد"  body="ممنونم💥"/>
+          <CommentsBoxes name="فریدون جمشدیی"   body="ممنونمممممم🤞"/>
+
+        {/* {allComments.map((comments) => (
           <CommentsBoxes {...comments} />
-        ))}
+        ))} */}
         <div
           className=""
           onClick={() =>

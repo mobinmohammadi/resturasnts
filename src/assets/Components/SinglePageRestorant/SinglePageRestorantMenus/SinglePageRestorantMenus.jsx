@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import MoreFoodsBoxes from "../../MoreFoodsRestorant/MoreFoodsBoxes/MoreFoodsBoxes";
 
-export default function SinglePageRestorantMenu() {
-
-  const [menusResturants , setMenusResturants] = useState([])
+export default function SinglePageRestorantMenu({setArrayUserBasket , arrayUserBasket }) {
+  const [menusResturants, setMenusResturants] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:4444/restaurants`)
-    .then(res => res.json())
-    .then(result => {
-      console.log(result)
-      setMenusResturants(result)
-    }
-    )
-  },[])
+      .then((res) => res.json())
+      .then((result) => {
+        setMenusResturants(result);
+      });
+  }, []);
+  
+  const handle = (id) => {
+    const result = menusResturants.filter((item) => item.id == id);
+
+    setArrayUserBasket(prev => [...prev , {...result}])
+    localStorage.setItem("userBasket" , JSON.stringify(arrayUserBasket))
+  };
+
   return (
     <div className="flex container-custom pb-5 flex-col items-center">
       <div className="flex w-full relative mr-4 ml-4 xs:mr-12 xs:ml-12  items-center pt-2 pb-2 pr-2 rounded-sm mt-5 mb-5 bg-white">
@@ -26,9 +31,10 @@ export default function SinglePageRestorantMenu() {
         </svg>
       </div>
       <div className=" grid grid-cols-1 sm:grid-cols-2   xl:grid-cols-3 gap-3">
-        {menusResturants.map(menu => (
-
-        <MoreFoodsBoxes {...menu}/>
+        {menusResturants.map((menu) => (
+          <div onClick={() => handle(menu.id)} className="">
+            <MoreFoodsBoxes {...menu} />
+          </div>
         ))}
       </div>
     </div>

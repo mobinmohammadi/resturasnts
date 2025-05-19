@@ -40,72 +40,72 @@ export default function NewRestourants() {
   };
 
   return (
-    <div className="flex flex-col container-foods w-[85%]">
+    <div className="flex flex-col container-foods w-[100vh]">
       <div className=" pt-5 pb-5 mt-2 flex items-center   text-white pr-5 pl-5 bg-green-700 rounded-md h-[12vh]">
         <div className="flex justify-between w-full">
-          <span>ثبت رستوران جدید</span>
-          <svg className="w-6 h-6 cursor-pointer">
+          <span className="text-base">ثبت رستوران جدید</span>
+          <svg className="w-5 h-5 3xs:w-6 3xs:h-6 cursor-pointer">
             <use href="#pencil-square"></use>
           </svg>
         </div>
       </div>
       <div className=" mt-10 flex flex-col ">
-        <span className="text-xl border-b-3 pb-2 border-red-600 border-solid w-56 ">
+        <span className="text-sm 3xs:text-lg border-b-2 font-bold 3xs:border-b-3 pb-2 border-red-600 border-solid w-[154px] 3xs:w-56 ">
           مشخصات رستوران جدید
         </span>
         <div className="bg-white p-5 flex flex-col gap-5 rounded-md mt-5">
-          <div className="  rounded-md grid grid-cols-2 gap-3 ">
+          <div className="  rounded-md grid grid-cols-1 3xs:grid-cols-2 gap-3 ">
             <div className="flex flex-col gap-2">
-              <span>نام رستوران</span>
+              <span className="text-sm 3xs:text-base">نام رستوران</span>
               <input
                 onChange={(e) => setTitleNewRestourants(e.target.value)}
-                className="bg-slate-100 outline-0 rounded-sm pt-1 pb-1 pr-3 pl-3"
+                className="text-sm h-10  bg-slate-100 outline-0 rounded-sm pt-1 pb-1 pr-3 pl-3"
                 type="text"
                 placeholder="نام رستوران را وارد نمایید...."
               />
             </div>
             <div className="flex flex-col gap-2">
-              <span>شهر رستوران</span>
+              <span className="text-sm 3xs:text-base">شهر رستوران</span>
               <input
                 onChange={(e) => setLocationNewRestorants(e.target.value)}
-                className="bg-slate-100 outline-0 rounded-sm pt-1 pb-1 pr-3 pl-3"
+                className="bg-slate-100 h-10 text-sm outline-0 rounded-sm pt-1 pb-1 pr-3 pl-3"
                 type="text"
                 placeholder="مکان رستوران را وارد نمایید...."
               />
             </div>
              <div className="flex flex-col gap-2">
-              <span>استان رستوران</span>
+              <span className="text-sm 3xs:text-base">استان رستوران</span>
               <input
                 onChange={(e) => setProvinceRestorunts(e.target.value)}
-                className="bg-slate-100 outline-0 rounded-sm pt-1 pb-1 pr-3 pl-3"
+                className="bg-slate-100 text-sm  h-10 outline-0 rounded-sm pt-1 pb-1 pr-3 pl-3"
                 type="text"
-                placeholder="مکان رستوران را وارد نمایید...."
+                placeholder="استان رستوران را وارد نمایید...."
               />
             </div>
           </div>
           <div className="flex justify-center items-center flex-col  gap-2 w-full">
-            <span>توضحات تکمیلی رستوران</span>
+            <span className="text-sm 3xs:text-base">توضحات تکمیلی رستوران</span>
             <textarea
               onChange={(e) => setDescriptionsNewRestorants(e.target.value)}
-              className="bg-slate-100 outline-green-500 mr-5 ml-5 w-full rounded-sm pt-1 pb-1 pr-3 pl-3"
+              className="bg-slate-100  text-sm  outline-green-500 mr-5 ml-5 w-full rounded-sm pt-1 pb-1 pr-3 pl-3"
               type="text"
               placeholder="توضیحات تکمیلی رستوران را وارد نمایید...."
             />
           </div>
           <div className="flex flex-col gap-2">
-            <span>عکس رستوران را آپلود نمایید</span>
+            <span className="text-sm 3xs:text-base">URL رستوران را وارد نمایید</span>
             <input
               onChange={(e) => setProfailNewRestorants(e.target.value)}
-              className="bg-slate-100 outline-0 rounded-sm pt-1 pb-1 pr-3 pl-3"
+              className="bg-slate-100 text-sm h-10  outline-0 rounded-sm pt-1 pb-1 pr-3 pl-3"
               type="text"
               placeholder="عکس رستوران ...."
             />
           </div>
           <div className="float-end">
-            <div className="group overflow-hidden relative w-40 flex items-center justify-center bg-teal-600 text-white pt-2 pb-2 rounded-sm float-end cursor-pointer">
+            <div className="group overflow-hidden w-full relative 3xs:w-40 flex items-center justify-center bg-teal-600 text-white pt-2 pb-2 rounded-sm float-end cursor-pointer">
               <button
                 onClick={(e) => createdNewRestorants(e)}
-                className="z-20 cursor-pointer group-hover:text-white"
+                className="z-20 text-sm 3xs:text-base cursor-pointer w-full group-hover:text-white"
               >
                 ثبت رستوران
               </button>
