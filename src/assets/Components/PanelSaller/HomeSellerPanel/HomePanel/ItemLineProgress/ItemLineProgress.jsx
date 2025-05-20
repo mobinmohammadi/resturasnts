@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ItemLineProgress({title , percent , count , desc , colors , bgProgress}) {
   return (
-    <div className=" flex justify-between flex-col h-[150px] sm:w-[130px] pt-2 pb-2 pr-3 pl-3 rounded-xs bg-white">
+    <div className=" flex justify-between flex-col h-[150px] pt-2 pb-2 pr-3 pl-3 rounded-xs bg-white">
       <div className="flex justify-between ">
         <span>{title}</span>
         <svg className="w-6 h-6">
