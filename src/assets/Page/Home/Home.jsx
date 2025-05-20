@@ -18,7 +18,7 @@ export default function Home() {
         <NewFoods />
       </div>
       <FooterPc />
-      <div className="bg-slate-200 w-full h-full absolute top-5">
+      {/* <div className="bg-slate-200 w-full h-full absolute top-5">
         <div className="w-[90%] mx-auto">
           <div className="flex justify-center items-center pt-5 pb-3 border-b-2 border-sky-600 border-solid ">
             <span>شهر خود را انتخاب کنید</span>
@@ -34,7 +34,7 @@ export default function Home() {
             <span>تهران</span>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* <div className='bg-zinc-700 w-full h-full z-40 fixed top-0'>s</div> */}
     </div>
   );
