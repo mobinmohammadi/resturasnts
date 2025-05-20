@@ -9,6 +9,7 @@ import SinglePageRestorant from "./assets/Components/SinglePageRestorant/SingleP
 import { Pane } from "react-leaflet";
 import PanelSellerResturants from "./assets/Page/Home/PanelSellerResturants/PanelSellerResturants.jsx";
 import NewRestourants from "./assets/Components/PanelSaller/HomeSellerPanel/NewRestourants/NewRestourants.jsx";
+import HomePanel from "./assets/Components/PanelSaller/HomeSellerPanel/HomePanel/HomePanel.jsx";
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Routes>
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")).render(
       <Route path="/categuryfoods" element={<CateguryFoods />} />
       <Route path="/restorant/:ResoruntID" element={<SinglePageRestorant />} />
       <Route path="/sallerpanel/*" element={<PanelSellerResturants />}>
+        <Route path="home" element={<HomePanel />} />
         <Route path="newrestorants" element={<NewRestourants />} />
       </Route>
     </Routes>

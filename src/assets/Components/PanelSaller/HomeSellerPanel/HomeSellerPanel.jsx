@@ -93,14 +93,8 @@ export default function HomeSellerPanel() {
       ) : (
         ""
       )}
-      {/* <Gauge
-        value={75}
-        startAngle={0}
-        endAngle={360}
-        innerRadius="80%"
-        outerRadius="100%"
-        // ...
-      /> */}
+      
+   
     </>
   );
 }

@@ -7,7 +7,6 @@ export default function PanelSellerResturants() {
   return (
     <div className='bg-slate-200 flex gap-5'>
         <HomeSellerPanel/>
-        <HomePanel/>
         <Outlet/>
     </div>
   )
