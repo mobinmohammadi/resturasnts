@@ -36,7 +36,6 @@ export default function Home() {
   }
 
   function hiddenShowAddreas(title){
-    console.log(title);
     setCity(title)
     
       wrapperAddres.current.className = "top-full hidden transition-custom"
@@ -73,7 +72,7 @@ export default function Home() {
               </div>
               <div className=" grid grid-cols-4 & > *:pt-.5 & > *:pb-.5 gap-2 & > *:text-center mt-5 & > *:rounded-xs & > *:cursor-pointer & > *:hover:bg-black/10 & > *:transition-all justify-between & > *:bg-white & > * :w-full">
                {PreeSeeCitys.PreeSeeCitys.map(city => (
-                <CityNameFreeSee title={city.city} hiddenShowAddreas={hiddenShowAddreas}/>
+                <CityNameFreeSee key={city.id} title={city.city} hiddenShowAddreas={hiddenShowAddreas}/>
                ))}
               </div>
             </div>
@@ -122,8 +121,8 @@ export default function Home() {
                   </div>
                 ) : (
                   <ul className="w-[90%] h- mx-auto & > *:rounded-sm flex flex-col  gap-[2px] mt-2 text-center & > *:bg-slate-200 & > *:p-2 & > *:cursor-pointer & > *:hover:bg-slate-300 transition-all">
-                    {resultSearchs.map((city) => (
-                      <li>{city.name}</li>
+                    {resultSearchs.map((city , index) => (
+                      <li key={index + 1}>{city.name}</li>
                     ))}
                   </ul>
                 )}

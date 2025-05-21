@@ -445,15 +445,196 @@ const AllCitis = [
 ];
 
 const PreeSeeCitys = [
-   {id : 1  , city :"ارومیه" },
-   {id : 2  , city :"مهاباد" },
-   {id : 3  , city :"پیرانشهر" },
-   {id : 4  , city :"مهاباد" },
-   {id : 5  , city :"تبریز" },
-   {id : 6  , city :"لرستان" },
-   {id : 7  , city :"گرگان" },
-   {id : 8  , city :"خوی" },
-       
-]
+  { id: 1, city: "ارومیه" },
+  { id: 2, city: "مهاباد" },
+  { id: 3, city: "پیرانشهر" },
+  { id: 4, city: "مهاباد" },
+  { id: 5, city: "تبریز" },
+  { id: 6, city: "لرستان" },
+  { id: 7, city: "گرگان" },
+  { id: 8, city: "خوی" },
+];
 
-export default { DataAllCities ,AllCitis , PreeSeeCitys };
+const allCategury = [
+  {
+    id: 1,
+    title: "پیتزا",
+    img: "./images/foods/papular-foods/1.jpg",
+  },
+  {
+    id: 2,
+    title: "کباب",
+    img: "./images/foods/papular-foods/2.jpg",
+  },
+  {
+    id: 3,
+    title: "سوپ",
+    img: "./images/foods/papular-foods/3.jpg",
+  },
+  {
+    id: 4,
+    title: "ساندویچ",
+    img: "./images/foods/papular-foods/4.jpg",
+  },
+  {
+    id: 5,
+    title: "غذای ایرانی",
+    img: "./images/foods/papular-foods/5.jpg",
+  },
+  {
+    id: 6,
+    title: "سوخاری",
+    img: "./images/foods/papular-foods/6.jpg",
+  },
+  {
+    id: 7,
+    title: "پاستا",
+    img: "./images/foods/papular-foods/7.jpg",
+  },
+  {
+    id: 8,
+    title: "سالاد",
+    img: "./images/foods/papular-foods/8.jpg",
+  },
+  {
+    id: 9,
+    title: "صبحانه",
+    img: "./images/foods/papular-foods/9.jpg",
+  },
+  {
+    id: 10,
+    title: "استیک",
+    img: "./images/foods/papular-foods/10.jpg",
+  },
+];
+
+const dataAllRestorants = [
+  {
+    id: 5,
+    name: "رستوران علی بابا",
+    rating: 4.5,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 6,
+    name: "رستوران روژان",
+    rating: 5,
+    distance: 4,
+    tags: [],
+  },
+  {
+    id: 8,
+    name: "رستوران برادران",
+    rating: 5,
+    distance: 4,
+    tags: [],
+  },
+  {
+    id: 9,
+    name: "رستوران محمدی",
+    rating: 5,
+    distance: 4,
+    tags: [],
+  },
+  {
+    id: 18,
+    name: "رستوران حریری",
+    rating: 4.5,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 19,
+    name: "همسایه",
+    rating: 4.5,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 20,
+    name: "تهرونی",
+    rating: 4.5,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 21,
+    name: "فست فود شهر غذا",
+    rating: 4.5,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 22,
+    name: "فست فود چیکا",
+    rating: 4.5,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 23,
+    name: "فست فود دیکا",
+    rating: 4.5,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 25,
+    name: "رستوران قصر",
+    rating: 4.5,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 27,
+    name: "کافه رستوران لیانا",
+    rating: 4.5,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 28,
+    name: "خصروی",
+    rating: 3,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 29,
+    name: "خصروی",
+    rating: 3,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 30,
+    name: "فست فود شی",
+    rating: 3,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 31,
+    name: "رستوران حق",
+    rating: 3,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 32,
+    name: "رستوران حق",
+    rating: 3,
+    distance: 2,
+    tags: [],
+  },
+  {
+    id: 33,
+    name: "رستوران حق",
+    rating: 3,
+    distance: 2,
+    tags: [],
+  },
+];
+
+export default { DataAllCities,dataAllRestorants, AllCitis, PreeSeeCitys, allCategury };

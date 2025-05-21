@@ -86,7 +86,7 @@ export default function EasyAddress({city}) {
         <svg className="w-4 h-4 sm:w-8 sm:h-8">
           <use href="#map-pin"></use>
         </svg>
-        <span>درمحدوده {city}</span>
+        <span> {titleCapital.length ? `درمحدوده ${titleCapital}` : ` درمحدوده ${city}`} </span>
         <div
           onClick={() => openBoxesSelectedDetailsCity()}
           onChange={(e) => handleByTitleCapital(e)}
