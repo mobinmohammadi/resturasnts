@@ -6,8 +6,14 @@ import FooterPc from "../../Components/FooterPc/FooterPc";
 import EasyAddress from "../../Components/EasyAddress/EasyAddress";
 import UserBasket from "../../Components/UserBasket/UserBasket";
 import NewFoods from "../../Components/NewFoods/NewFoods";
+import PreeSeeCitys from "../../../Data.js"
+
+
 import AllCitis from "../../../Data.js";
+import CityNameFreeSee from "../../Components/CityNameFreeSee/CityNameFreeSee.jsx";
+
 export default function Home() {
+  const [city , setCity] = useState("")
   const [titleSearch, setTitleSearch] = useState("");
   const [resultSearchs, setResultSearchs] = useState([AllCitis]);
   const wrapperSearchReasults = useRef();
@@ -29,21 +35,25 @@ export default function Home() {
     }
   }
 
-  function hiddenShowAddreas(){
+  function hiddenShowAddreas(title){
+    console.log(title);
+    setCity(title)
+    
       wrapperAddres.current.className = "top-full hidden transition-custom"
+      wrapperAddres.current.style.transition = "all 1s ease"
       
   }
   return (
     <div className="dark:bg-zinc-600 relative">
       {/* <UserBasket/> */}
-      <Header />
+      <Header city={city}/>
       <div className="container-custom">
         <PapularCategury />
         <AroundMe />
         <NewFoods />
       </div>
       <FooterPc />
-      <div ref={wrapperAddres} className="bg-slate-200  w-full fixed h-[100vh] bottom-0 z-50 top-5">
+      <div ref={wrapperAddres} className="bg-slate-200 overflow-y-scroll  w-full fixed h-[100vh] bottom-0 z-50 top-0">
         <div className="w-[90%] mx-auto flex flex-col gap-10">
           <div className="relative">
             <div className="flex flex-col gap-2  justify-center items-center pt-5 pb-3 border-b-2 border-sky-600 border-solid ">
@@ -54,22 +64,17 @@ export default function Home() {
                 </svg>
               </div>
             </div>
-            <div className="relative mt-10 flex flex-col gap-7">
+            <div className="relative mt-5 flex flex-col gap-7">
               <div className="mr-5">
                 <label className="mr-2" htmlFor="city">
                   شهر های پر بازدید 👌
                 </label>
                 <span className="absolute mr-4 -right-5 top-0 rounded-sm w-5 h-5 bottom-1 bg-yellow-500 "></span>
               </div>
-              <div className=" grid grid-cols-5 gap-2 & > *:text-center mt-5 & > *:rounded-xs & > *:cursor-pointer & > *:hover:bg-black/10 & > *:transition-all justify-between & > *:bg-white & > * :w-full">
-                <span>ارومیه</span>
-                <span>مهاباد</span>
-                <span>پیرانشهر</span>
-                <span>تهران</span>
-                <span>مهاباد</span>
-                <span>ارومیه</span>
-                <span>تبریز</span>
-                <span>تهران</span>
+              <div className=" grid grid-cols-4 & > *:pt-.5 & > *:pb-.5 gap-2 & > *:text-center mt-5 & > *:rounded-xs & > *:cursor-pointer & > *:hover:bg-black/10 & > *:transition-all justify-between & > *:bg-white & > * :w-full">
+               {PreeSeeCitys.PreeSeeCitys.map(city => (
+                <CityNameFreeSee title={city.city} hiddenShowAddreas={hiddenShowAddreas}/>
+               ))}
               </div>
             </div>
           </div>
@@ -98,11 +103,11 @@ export default function Home() {
 
               <div
                 ref={wrapperSearchReasults}
-                className="opacity-0 bg-white w-full h-80  rounded-t-md"
+                className="opacity-0 bg-white mb-20 w-full h-[340px] rounded-md"
               >
                 <div className="flex flex-col xs:flex-row gap-2  pr-3 pl-3 justify-between mt-2 border-b-2 border-b-slate-300 pb-2 border-solid items-center pt-3">
-                  <span className="text-center">شهر های یافت شده ♻</span>
-                  <span>{resultSearchs.length} تعداد شهر های یافت شده</span>
+                  <span className="text-center text-sm sm:text-base">شهر های یافت شده ♻</span>
+                  <span className="text-sm sm:text-base">{resultSearchs.length} تعداد شهر های یافت شده</span>
                 </div>
                 {!resultSearchs.length ? (
                   <div className="flex text-center items-center justify-center flex-col gap-5">
@@ -111,7 +116,7 @@ export default function Home() {
                       src="../images/gif/notFound.gif"
                       alt=""
                     />
-                    <span className="max-w-[164px] text-sm">
+                    <span className="max-w-[150px] text-sm leading-6 font-bold">
                       متاسفانه همچین شهری در دیتابیس ما وجود ندارد 😓
                     </span>
                   </div>

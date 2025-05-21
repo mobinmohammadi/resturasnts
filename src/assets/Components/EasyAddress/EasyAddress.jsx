@@ -5,7 +5,7 @@ import OptionsSelect from "../OptionsSelect/OptionsSelect";
 
 import DataAllCities from "../../../Data.js";
 
-export default function EasyAddress() {
+export default function EasyAddress({city}) {
   // const [allCitis, setAllCitis] = useState(DataAllCities)
   const allCitis = [DataAllCities];
   const [selectBoxheader, setSelectBoxHeader] = useState("neighborhood");
@@ -86,7 +86,7 @@ export default function EasyAddress() {
         <svg className="w-4 h-4 sm:w-8 sm:h-8">
           <use href="#map-pin"></use>
         </svg>
-        <span>درمحدوده</span>
+        <span>درمحدوده {city}</span>
         <div
           onClick={() => openBoxesSelectedDetailsCity()}
           onChange={(e) => handleByTitleCapital(e)}

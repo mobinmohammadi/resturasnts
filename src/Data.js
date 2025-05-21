@@ -444,4 +444,16 @@ const AllCitis = [
   { id: 120, name: "هرسین" },
 ];
 
-export default { DataAllCities ,AllCitis };
+const PreeSeeCitys = [
+   {id : 1  , city :"ارومیه" },
+   {id : 2  , city :"مهاباد" },
+   {id : 3  , city :"پیرانشهر" },
+   {id : 4  , city :"مهاباد" },
+   {id : 5  , city :"تبریز" },
+   {id : 6  , city :"لرستان" },
+   {id : 7  , city :"گرگان" },
+   {id : 8  , city :"خوی" },
+       
+]
+
+export default { DataAllCities ,AllCitis , PreeSeeCitys };
